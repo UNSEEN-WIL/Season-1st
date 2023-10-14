@@ -114,3 +114,7 @@ add eax, 2
 ## 스택 프레임
 
 스택 프레임은 프로세스 활동 기록이라고도 불린다. 스택 프레임은 컴파일러가 프로시저 / 함수 콜을 구현하기 위해서 사용하는 데이터 구조다. 논리적으로, 스택 프레임은 함수 실행 환경이다. 함수 인자, 함수 로컬 변수, 함수가 실행된 곳으로 되돌아갈 장소 등등으로 구성된다.
+
+## 출처
+
+https://ikrima.dev/ue4guide/engine-programming/blueprints/bp-virtualmachine-overview/
