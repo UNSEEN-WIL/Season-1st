@@ -28,7 +28,7 @@ std::weak_ptr<CustomData> weakCustomData = sharedCustomData;
 
 - **1번 코드**에 weak_ptr을 첨가하면…
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/4bea4c1d-c6b3-4561-94d4-ca91e89bdb52/ff9fc0ef-d129-435c-a4a3-2829cc296cf3/Untitled.png)
+![Untitled](https://github.com/UNSEEN-WIL/Season-1st/blob/main/DC/Images/1Week_1.png)
 
 - `sharedCustomData = nullptr;` 를 실행하면 메모리 해제가 잘 됐군요?
 - 보세요, shared 포인터 내부에 있는 `_Ptr`값에 쓰레기값이 잔뜩 들어가있잖아요?
@@ -37,7 +37,7 @@ std::weak_ptr<CustomData> weakCustomData = sharedCustomData;
 
 - **2번 코드**에 weak_ptr을 첨가하면…
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/4bea4c1d-c6b3-4561-94d4-ca91e89bdb52/2d439099-0ad3-4128-8102-2e98be413f5a/Untitled.png)
+![Untitled](https://github.com/UNSEEN-WIL/Season-1st/blob/main/DC/Images/1Week_2.png)
 
 - 아니? 왜 메모리해제가 안돼있죠?
 - `weakCustomData`가 expired는 됐다고 써져있는데 해도 실제로  free는 호출됐지 않았네요?
@@ -45,7 +45,7 @@ std::weak_ptr<CustomData> weakCustomData = sharedCustomData;
 
 # std::make_shared 의 작동방식
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/4bea4c1d-c6b3-4561-94d4-ca91e89bdb52/709d86d2-cd60-4b72-bf55-9460dfda5269/Untitled.png)
+![Untitled](https://github.com/UNSEEN-WIL/Season-1st/blob/main/DC/Images/1Week_3.png)
 
 - `std::make_shared`도 내부적으로는 결국 malloc을 호출해야 하잖아요?
 - 함수호출부를 보면 **48byte**크기만큼 메모리를 할당하는군요.
