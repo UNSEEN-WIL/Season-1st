@@ -1,4 +1,7 @@
-# 코드를 볼까요?
+# shared_ptr에 weak_ptr을 붙이면 할당해제를 안시켜준다고??!
+
+
+## 코드를 볼까요?
 
 **1번**코드 입니다.
 
@@ -16,7 +19,7 @@
 - 자 위 두 개의 코드를 보면 어떤가요? 코드는 좀 달라도 똑같은 기능을 하는 코드처럼 보이죠?
 - 그런데 정말 재밌는 일이 일어납니다.
 
-# weak_ptr와 함께 버무려보아요
+## weak_ptr와 함께 버무려보아요
 
 ```cpp
 std::weak_ptr<CustomData> weakCustomData = sharedCustomData;
@@ -43,7 +46,7 @@ std::weak_ptr<CustomData> weakCustomData = sharedCustomData;
 - `weakCustomData`가 expired는 됐다고 써져있는데 해도 실제로  free는 호출됐지 않았네요?
 - 보세요, `_Ptr`내부에 0으로 초기화해놓은 값이 그대로 있잖아요?
 
-# std::make_shared 의 작동방식
+## std::make_shared 의 작동방식
 
 ![Untitled](https://github.com/UNSEEN-WIL/Season-1st/blob/main/DC/Images/1Week_3.png)
 
@@ -57,11 +60,11 @@ std::weak_ptr<CustomData> weakCustomData = sharedCustomData;
 - 근데, `weak_ptr`이 실제 `CustomClass`를 레퍼런스 하지 않더라도 `shared_ptr`의 메타데이터를 내부적으로 레퍼런스 한다면 메모리 해제를 못하겠네요?
 - 그래서  `std::make_shared`로 생성된 `shared_ptr`은 `weak_ptr`에 의해 참조되고있으면 프로그래머가 생각한대로 메모리 해제가 되지 않는답니다… 이런…
 
-# 결론
+## 결론
 
 - `std::make_shared`로 생성된 `shared_ptr`은 `weak_ptr`에 의해 참조되고있으면 refcount가 0이더라도 메모리가 해제되지 않는다.
 
-# 코드
+## 코드
 
 ```cpp
 #include <memory>
